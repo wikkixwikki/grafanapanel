@@ -1,0 +1,108 @@
+{
+  "cacheTimeout": null,
+  "colorBackground": false,
+  "colorValue": true,
+  "colors": [
+    "#299c46",
+    "rgba(237, 129, 40, 0.89)",
+    "#d44a3a"
+  ],
+  "datasource": "plex",
+  "format": "none",
+  "gauge": {
+    "maxValue": 20,
+    "minValue": 0,
+    "show": true,
+    "thresholdLabels": false,
+    "thresholdMarkers": true
+  },
+  "gridPos": {
+    "h": 5,
+    "w": 4,
+    "x": 8,
+    "y": 0
+  },
+  "id": 8,
+  "interval": null,
+  "links": [
+    {
+      "targetBlank": true,
+      "title": "Ombi",
+      "type": "absolute",
+      "url": "https://requests.efcinema.com"
+    }
+  ],
+  "mappingType": 1,
+  "mappingTypes": [
+    {
+      "name": "value to text",
+      "value": 1
+    },
+    {
+      "name": "range to text",
+      "value": 2
+    }
+  ],
+  "maxDataPoints": 100,
+  "nullPointMode": "connected",
+  "nullText": null,
+  "postfix": "",
+  "postfixFontSize": "50%",
+  "prefix": "",
+  "prefixFontSize": "50%",
+  "rangeMaps": [
+    {
+      "from": "null",
+      "text": "N/A",
+      "to": "null"
+    }
+  ],
+  "sparkline": {
+    "fillColor": "rgba(31, 118, 189, 0.18)",
+    "full": false,
+    "lineColor": "rgb(31, 120, 193)",
+    "show": false
+  },
+  "tableColumn": "",
+  "targets": [
+    {
+      "dsType": "influxdb",
+      "groupBy": [],
+      "measurement": "Ombi",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "refId": "A",
+      "resultFormat": "time_series",
+      "select": [
+        [
+          {
+            "params": [
+              "pending"
+            ],
+            "type": "field"
+          }
+        ]
+      ],
+      "tags": [
+        {
+          "key": "type",
+          "operator": "=",
+          "value": "Request_Counts"
+        }
+      ]
+    }
+  ],
+  "thresholds": "1,10",
+  "timeFrom": null,
+  "title": "TV / Movie Requests in Queue",
+  "type": "singlestat",
+  "valueFontSize": "150%",
+  "valueMaps": [
+    {
+      "op": "=",
+      "text": "N/A",
+      "value": "null"
+    }
+  ],
+  "valueName": "current"
+}
