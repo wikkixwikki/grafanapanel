@@ -1,0 +1,121 @@
+{
+  "columns": [],
+  "datasource": "varken",
+  "fontSize": "100%",
+  "gridPos": {
+    "h": 6,
+    "w": 12,
+    "x": 12,
+    "y": 19
+  },
+  "hideTimeOverride": true,
+  "id": 11,
+  "links": [
+    {
+      "targetBlank": true,
+      "title": "Radarr",
+      "type": "absolute",
+      "url": "https://movies.server.com/wanted/missing"
+    }
+  ],
+  "minSpan": 6,
+  "pageSize": 5,
+  "scroll": true,
+  "showHeader": true,
+  "sort": {
+    "col": 1,
+    "desc": false
+  },
+  "styles": [
+    {
+      "alias": "Name",
+      "colorMode": null,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "dateFormat": "YYYY-MM-DD HH:mm:ss",
+      "decimals": 2,
+      "pattern": "name",
+      "thresholds": [],
+      "type": "string",
+      "unit": "short"
+    },
+    {
+      "alias": "",
+      "colorMode": null,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "dateFormat": "YYYY-MM-DD HH:mm:ss",
+      "decimals": 2,
+      "mappingType": 1,
+      "pattern": "distinct",
+      "thresholds": [],
+      "type": "hidden",
+      "unit": "short"
+    },
+    {
+      "alias": "",
+      "colorMode": null,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "dateFormat": "YYYY-MM-DD HH:mm:ss",
+      "decimals": 2,
+      "mappingType": 1,
+      "pattern": "Time",
+      "thresholds": [],
+      "type": "hidden",
+      "unit": "short"
+    }
+  ],
+  "targets": [
+    {
+      "dsType": "influxdb",
+      "groupBy": [
+        {
+          "params": [
+            "name"
+          ],
+          "type": "tag"
+        }
+      ],
+      "measurement": "Radarr",
+      "orderByTime": "ASC",
+      "policy": "default",
+      "refId": "A",
+      "resultFormat": "table",
+      "select": [
+        [
+          {
+            "params": [
+              "hash"
+            ],
+            "type": "field"
+          },
+          {
+            "params": [],
+            "type": "distinct"
+          }
+        ]
+      ],
+      "tags": [
+        {
+          "key": "Missing_Available",
+          "operator": "=",
+          "value": "True"
+        }
+      ]
+    }
+  ],
+  "timeFrom": "2d",
+  "title": "Missing Available Movies",
+  "transform": "table",
+  "type": "table"
+}

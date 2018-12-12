@@ -20,15 +20,15 @@
     "label": "Others",
     "threshold": ".04"
   },
-  "datasource": "plex",
+  "datasource": "varken",
   "decimals": 0,
   "fontSize": "80%",
   "format": "none",
   "gridPos": {
-    "h": 7,
-    "w": 6,
+    "h": 6,
+    "w": 12,
     "x": 0,
-    "y": 5
+    "y": 13
   },
   "id": 13,
   "interval": null,
@@ -45,7 +45,7 @@
   "maxDataPoints": 3,
   "nullPointMode": "connected",
   "pieType": "donut",
-  "strokeWidth": "7",
+  "strokeWidth": "1",
   "targets": [
     {
       "alias": "$tag_device_type",
@@ -84,7 +84,7 @@
         [
           {
             "params": [
-              "session_key"
+              "hash"
             ],
             "type": "field"
           },

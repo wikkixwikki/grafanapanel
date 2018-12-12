@@ -7,10 +7,10 @@
     "rgba(237, 129, 40, 0.89)",
     "#d44a3a"
   ],
-  "datasource": "plex",
+  "datasource": "varken",
   "format": "none",
   "gauge": {
-    "maxValue": 30,
+    "maxValue": 15,
     "minValue": 0,
     "show": true,
     "thresholdLabels": false,
@@ -20,7 +20,7 @@
     "h": 5,
     "w": 4,
     "x": 0,
-    "y": 0
+    "y": 9
   },
   "id": 6,
   "interval": null,
@@ -70,7 +70,7 @@
         [
           {
             "params": [
-              "current_streams"
+              "stream_count"
             ],
             "type": "field"
           }
@@ -80,12 +80,12 @@
         {
           "key": "type",
           "operator": "=",
-          "value": "stream_count"
+          "value": "current_stream_stats"
         }
       ]
     }
   ],
-  "thresholds": "10,20",
+  "thresholds": "5,10",
   "title": "Plex Current Streams",
   "type": "singlestat",
   "valueFontSize": "120%",

@@ -1,12 +1,12 @@
 {
   "columns": [],
-  "datasource": "plex",
+  "datasource": "varken",
   "fontSize": "100%",
   "gridPos": {
-    "h": 12,
-    "w": 12,
+    "h": 9,
+    "w": 24,
     "x": 0,
-    "y": 12
+    "y": 33
   },
   "hideTimeOverride": true,
   "id": 9,
@@ -222,6 +222,22 @@
           "value": "3"
         }
       ]
+    },
+    {
+      "alias": "",
+      "colorMode": null,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "dateFormat": "YYYY-MM-DD HH:mm:ss",
+      "decimals": 2,
+      "mappingType": 1,
+      "pattern": "username",
+      "thresholds": [],
+      "type": "hidden",
+      "unit": "short"
     }
   ],
   "targets": [
@@ -230,13 +246,13 @@
       "groupBy": [
         {
           "params": [
-            "name"
+            "title"
           ],
           "type": "tag"
         },
         {
           "params": [
-            "title"
+            "friendly_name"
           ],
           "type": "tag"
         },
@@ -275,6 +291,18 @@
             "location"
           ],
           "type": "tag"
+        },
+        {
+          "params": [
+            "username"
+          ],
+          "type": "tag"
+        },
+        {
+          "params": [
+            "player_state"
+          ],
+          "type": "tag"
         }
       ],
       "hide": false,
@@ -283,14 +311,14 @@
       "orderByTime": "ASC",
       "policy": "default",
       "query": "SELECT distinct(\"session_key\") FROM \"Tautulli\" WHERE (\"type\" = 'Session') AND $timeFilter GROUP BY \"name\",  \"title\", \"quality\", \"video_decision\", \"quality_profile\", \"platform\", \"product_version\", \"location\", \"player_state\"",
-      "rawQuery": true,
+      "rawQuery": false,
       "refId": "A",
       "resultFormat": "table",
       "select": [
         [
           {
             "params": [
-              "session_key"
+              "hash"
             ],
             "type": "field"
           },

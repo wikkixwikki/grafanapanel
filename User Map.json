@@ -6,7 +6,7 @@
     "#6d3c97",
     "#890f02"
   ],
-  "datasource": "plex",
+  "datasource": "varken",
   "decimals": 0,
   "esGeoPoint": "geohash",
   "esLocationName": "location",
@@ -15,7 +15,7 @@
     "h": 10,
     "w": 12,
     "x": 12,
-    "y": 0
+    "y": 3
   },
   "hideEmpty": false,
   "hideTimeOverride": true,
@@ -63,12 +63,6 @@
             "full_location"
           ],
           "type": "tag"
-        },
-        {
-          "params": [
-            "name"
-          ],
-          "type": "tag"
         }
       ],
       "measurement": "Tautulli",
@@ -80,7 +74,7 @@
         [
           {
             "params": [
-              "session_key"
+              "hash"
             ],
             "type": "field"
           },

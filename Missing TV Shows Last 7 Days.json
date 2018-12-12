@@ -1,12 +1,12 @@
 {
   "columns": [],
-  "datasource": "plex",
+  "datasource": "varken",
   "fontSize": "100%",
   "gridPos": {
-    "h": 12,
-    "w": 6,
+    "h": 7,
+    "w": 12,
     "x": 12,
-    "y": 10
+    "y": 13
   },
   "hideTimeOverride": true,
   "id": 10,
@@ -84,6 +84,22 @@
       "thresholds": [],
       "type": "hidden",
       "unit": "short"
+    },
+    {
+      "alias": "",
+      "colorMode": null,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "dateFormat": "YYYY-MM-DD HH:mm:ss",
+      "decimals": 2,
+      "mappingType": 1,
+      "pattern": "distinct",
+      "thresholds": [],
+      "type": "hidden",
+      "unit": "short"
     }
   ],
   "targets": [
@@ -92,7 +108,7 @@
       "groupBy": [
         {
           "params": [
-            "sonarrId"
+            "name"
           ],
           "type": "tag"
         }
@@ -106,29 +122,13 @@
         [
           {
             "params": [
-              "name"
+              "hash"
             ],
             "type": "field"
           },
           {
-            "params": [
-              "TV Show"
-            ],
-            "type": "alias"
-          }
-        ],
-        [
-          {
-            "params": [
-              "sxe"
-            ],
-            "type": "field"
-          },
-          {
-            "params": [
-              "S/E"
-            ],
-            "type": "alias"
+            "params": [],
+            "type": "distinct"
           }
         ]
       ],
@@ -136,12 +136,12 @@
         {
           "key": "type",
           "operator": "=",
-          "value": "Missing_Days"
+          "value": "Missing"
         }
       ]
     }
   ],
-  "timeFrom": "30s",
+  "timeFrom": "10m",
   "timeShift": null,
   "title": "Missing TV Shows (Last 7 Days)",
   "transform": "table",

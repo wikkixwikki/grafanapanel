@@ -10,15 +10,15 @@
     "label": "Others",
     "threshold": "0"
   },
-  "datasource": "plex",
+  "datasource": "varken",
   "decimals": 0,
-  "fontSize": "50%",
+  "fontSize": "100%",
   "format": "none",
   "gridPos": {
-    "h": 7,
-    "w": 6,
-    "x": 6,
-    "y": 5
+    "h": 6,
+    "w": 12,
+    "x": 0,
+    "y": 27
   },
   "id": 15,
   "interval": null,
@@ -26,6 +26,7 @@
     "percentage": true,
     "percentageDecimals": 0,
     "show": true,
+    "sideWidth": null,
     "sortDesc": true,
     "values": true
   },
@@ -34,7 +35,7 @@
   "maxDataPoints": 3,
   "nullPointMode": "connected",
   "pieType": "donut",
-  "strokeWidth": "7",
+  "strokeWidth": "1",
   "targets": [
     {
       "alias": "$tag_video_decision",
@@ -73,7 +74,7 @@
         [
           {
             "params": [
-              "session_key"
+              "hash"
             ],
             "type": "field"
           },

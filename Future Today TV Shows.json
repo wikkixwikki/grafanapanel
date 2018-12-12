@@ -1,32 +1,28 @@
 {
   "columns": [],
-  "datasource": "plex",
   "fontSize": "100%",
   "gridPos": {
-    "h": 12,
-    "w": 6,
-    "x": 18,
-    "y": 10
+    "h": 9,
+    "w": 12,
+    "x": 0,
+    "y": 8
   },
-  "hideTimeOverride": true,
-  "id": 11,
-  "links": [
-    {
-      "targetBlank": true,
-      "title": "Radarr",
-      "type": "absolute",
-      "url": "https://movies.server.com/wanted/missing"
-    }
-  ],
-  "minSpan": 6,
-  "pageSize": 10,
+  "id": 28,
+  "links": [],
+  "pageSize": null,
   "scroll": true,
   "showHeader": true,
   "sort": {
-    "col": null,
-    "desc": false
+    "col": 0,
+    "desc": true
   },
   "styles": [
+    {
+      "alias": "Time",
+      "dateFormat": "YYYY-MM-DD HH:mm:ss",
+      "pattern": "Time",
+      "type": "hidden"
+    },
     {
       "alias": "",
       "colorMode": null,
@@ -37,13 +33,14 @@
       ],
       "dateFormat": "YYYY-MM-DD HH:mm:ss",
       "decimals": 2,
-      "pattern": "Time",
+      "mappingType": 1,
+      "pattern": "downloaded",
       "thresholds": [],
       "type": "hidden",
       "unit": "short"
     },
     {
-      "alias": "Name",
+      "alias": "",
       "colorMode": null,
       "colors": [
         "rgba(245, 54, 54, 0.9)",
@@ -52,17 +49,50 @@
       ],
       "dateFormat": "YYYY-MM-DD HH:mm:ss",
       "decimals": 2,
-      "pattern": "name",
+      "mappingType": 1,
+      "pattern": "distinct",
       "thresholds": [],
-      "type": "string",
+      "type": "hidden",
+      "unit": "short"
+    },
+    {
+      "alias": "",
+      "colorMode": null,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "decimals": 2,
+      "pattern": "/.*/",
+      "thresholds": [],
+      "type": "number",
       "unit": "short"
     }
   ],
   "targets": [
     {
-      "dsType": "influxdb",
-      "groupBy": [],
-      "measurement": "Radarr",
+      "groupBy": [
+        {
+          "params": [
+            "downloaded"
+          ],
+          "type": "tag"
+        },
+        {
+          "params": [
+            "name"
+          ],
+          "type": "tag"
+        },
+        {
+          "params": [
+            "sxe"
+          ],
+          "type": "tag"
+        }
+      ],
+      "measurement": "Sonarr",
       "orderByTime": "ASC",
       "policy": "default",
       "refId": "A",
@@ -71,19 +101,13 @@
         [
           {
             "params": [
-              "name"
+              "hash"
             ],
             "type": "field"
           },
           {
             "params": [],
             "type": "distinct"
-          },
-          {
-            "params": [
-              "Movie"
-            ],
-            "type": "alias"
           }
         ]
       ],
@@ -91,19 +115,12 @@
         {
           "key": "type",
           "operator": "=",
-          "value": "Missing_Available"
-        },
-        {
-          "condition": "AND",
-          "key": "server",
-          "operator": "=",
-          "value": "1"
+          "value": "Future"
         }
       ]
     }
   ],
-  "timeFrom": "10m",
-  "title": "Missing Available Movies",
+  "title": "Today",
   "transform": "table",
   "type": "table"
 }
